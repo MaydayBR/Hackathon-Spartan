@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Database</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Plant Database</h1>
+
+    <input type="text" id="search-bar" placeholder="Search for a plant..." onkeyup="filterPlants()">
+    
+    <ul id="plant-list" style="display: none;"></ul> <!-- Initially hidden -->
+
+    <script>
+        let plantNames = [];
+
+        // Fetch plant names from the server
+        fetch('/plants')
+        .then(response => response.json())
+        .then(data => {
+            plantNames = data.plants;  // Store only plant names
+        })
+        .catch(error => console.error("Error fetching plant data:", error));
+
+        // Function to filter and display plant names
+        function filterPlants() {
+            let query = document.getElementById("search-bar").value.toLowerCase();
+            const plantList = document.getElementById("plant-list");
+
+            if (query === "") {
+                plantList.style.display = "none";
+                return;
+            }
+
+            let filteredPlants = plantNames.filter(plant => 
+                plant.toLowerCase().includes(query)
+            );
+
+            if (filteredPlants.length > 0) {
+                plantList.style.display = "block";
+            } else {
+                plantList.style.display = "none";
+            }
+
+            plantList.innerHTML = "";
+            filteredPlants.forEach(plant => {
+                let li = document.createElement("li");
+                li.textContent = plant;
+                li.onclick = function() {
+                    window.location.href = `/plant/${plant.replace(" ", "_")}`;  // Redirect to details page
+                };
+                plantList.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html>

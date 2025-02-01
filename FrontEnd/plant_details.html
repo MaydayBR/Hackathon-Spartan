@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ plant_name }}</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>{{ plant_name }}</h1>
+    <p><strong>Scientific Name:</strong> {{ plant_info.scientific_name }}</p>
+    <p><strong>Type:</strong> {{ plant_info.type }}</p>
+    <p><strong>Growth Cycle:</strong> {{ plant_info.cycle }}</p>
+    <p><strong>Watering Needs:</strong> {{ plant_info.watering }}</p>
+    <p><strong>Sunlight Needs:</strong> {{ ", ".join(plant_info.sunlight) }}</p>
+    <p><strong>Soil Type:</strong> {{ ", ".join(plant_info.soil) }}</p>
+    <p><strong>Edible:</strong> {{ "Yes" if plant_info.edible else "No" }}</p>
+    <p><strong>Poisonous:</strong> {{ "Yes" if plant_info.poisonous else "No" }}</p>
+    <p><strong>Description:</strong> {{ plant_info.description }}</p>
+
+    <br>
+    <a href="/">← Back to Search</a>
+</body>
+</html>
