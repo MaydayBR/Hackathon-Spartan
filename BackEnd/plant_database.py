@@ -13,7 +13,8 @@ plant_data = {
         "description": "A popular garden fruit with juicy, red berries. Requires full sun and regular watering.",
         "age": 0,
         "value": 0,
-        "image_url": "/static/images/tomato.jpg"
+        "image_url": "/static/images/tomato.jpg",
+        "time_till_maturity": 60  # days
     },
     "Carrot": {
         "scientific_name": "Daucus carota subsp. sativus",
@@ -29,7 +30,8 @@ plant_data = {
         "description": "A root vegetable known for its sweet, crunchy texture and bright orange color.",
         "age": 0,
         "value": 0,
-        "image_url": "/static/images/carrot.jpg"
+        "image_url": "/static/images/carrot.jpg",
+        "time_till_maturity": 70  # days
     },
     "Basil": {
         "scientific_name": "Ocimum basilicum",
@@ -45,7 +47,8 @@ plant_data = {
         "description": "An aromatic herb used in cooking. Known for its fragrant leaves and ability to repel pests.",
         "age": 0,
         "value": 0,
-        "image_url": "/static/images/basil.jpg"
+        "image_url": "/static/images/basil.jpg",
+        "time_till_maturity": 30  # days
     },
     "Lettuce": {
         "scientific_name": "Lactuca sativa",
@@ -61,7 +64,8 @@ plant_data = {
         "description": "A fast-growing leafy vegetable commonly used in salads. Thrives in cool weather.",
         "age": 0,
         "value": 0,
-        "image_url": "/static/images/lettuce.jpg"
+        "image_url": "/static/images/lettuce.jpg",
+        "time_till_maturity": 45  # days
     },
     "Strawberry": {
         "scientific_name": "Fragaria × ananassa",
@@ -77,7 +81,8 @@ plant_data = {
         "description": "Produces sweet, red fruits with a juicy texture. Great for garden beds or containers.",
         "age": 0,
         "value": 0,
-        "image_url": "/static/images/strawberry.jpg"
+        "image_url": "/static/images/strawberry.jpg",
+        "time_till_maturity": 90  # days
     },
     "Rosemary": {
         "scientific_name": "Salvia rosmarinus",
@@ -93,7 +98,8 @@ plant_data = {
         "description": "A woody herb with fragrant, needle-like leaves. Commonly used in cooking and has medicinal properties.",
         "age": 0,
         "value": 0,
-        "image_url": "/static/images/rosemary.jpg"
+        "image_url": "/static/images/rosemary.jpg",
+        "time_till_maturity": 120  # days
     },
     "Pepper": {
         "scientific_name": "Capsicum annuum",
@@ -109,7 +115,8 @@ plant_data = {
         "description": "A colorful fruit with varying levels of heat. Adds spice and flavor to dishes.",
         "age": 0,
         "value": 0,
-        "image_url": "/static/images/pepper.jpg"
+        "image_url": "/static/images/pepper.jpg",
+        "time_till_maturity": 75  # days
     },
     "Cucumber": {
         "scientific_name": "Cucumis sativus",
@@ -125,7 +132,8 @@ plant_data = {
         "description": "A fast-growing vine producing crisp, refreshing fruits. Perfect for salads and pickling.",
         "age": 0,
         "value": 0,
-        "image_url": "/static/images/cucumber.jpg"
+        "image_url": "/static/images/cucumber.jpg",
+        "time_till_maturity": 55  # days
     },
     "Mint": {
         "scientific_name": "Mentha",
@@ -141,7 +149,8 @@ plant_data = {
         "description": "A fast-spreading herb with a refreshing aroma. Commonly used in teas, desserts, and as a garnish.",
         "age": 0,
         "value": 0,
-        "image_url": "/static/images/mint.jpg"
+        "image_url": "/static/images/mint.jpg",
+        "time_till_maturity": 40  # days
     },
     "Zucchini": {
         "scientific_name": "Cucurbita pepo",
@@ -157,7 +166,8 @@ plant_data = {
         "description": "A summer squash producing elongated fruits. Thrives in warm weather and benefits from regular harvesting.",
         "age": 0,
         "value": 0,
-        "image_url": "/static/images/zucchini.jpg"
+        "image_url": "/static/images/zucchini.jpg",
+        "time_till_maturity": 50  # days
     }
 }
 
