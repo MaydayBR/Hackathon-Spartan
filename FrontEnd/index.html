@@ -11,20 +11,21 @@
 
     <input type="text" id="search-bar" placeholder="Search for a plant..." onkeyup="filterPlants()">
     
-    <ul id="plant-list" style="display: none;"></ul> <!-- Initially hidden -->
+    <ul id="plant-list" style="display: none;"></ul> 
+    
+    <button onclick="addPlant()">Add New Plant</button>
+    <button onclick="window.location.href='/profile'">View My Profile</button>
 
     <script>
         let plantNames = [];
 
-        // Fetch plant names from the server
         fetch('/plants')
         .then(response => response.json())
         .then(data => {
-            plantNames = data.plants;  // Store only plant names
+            plantNames = data.plants;
         })
         .catch(error => console.error("Error fetching plant data:", error));
 
-        // Function to filter and display plant names
         function filterPlants() {
             let query = document.getElementById("search-bar").value.toLowerCase();
             const plantList = document.getElementById("plant-list");
@@ -49,10 +50,44 @@
                 let li = document.createElement("li");
                 li.textContent = plant;
                 li.onclick = function() {
-                    window.location.href = `/plant/${plant.replace(" ", "_")}`;  // Redirect to details page
+                    window.location.href = `/plant/${plant.replace(" ", "_")}`;
                 };
                 plantList.appendChild(li);
             });
+        }
+
+        function addPlant() {
+            let newPlant = prompt("Enter new plant name:");
+            if (!newPlant) return;
+
+            fetch('/add_plant', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: newPlant,
+                    scientific_name: "Unknown",
+                    type: "Unknown",
+                    cycle: "Unknown",
+                    watering: "Unknown",
+                    sunlight: [],
+                    soil: [],
+                    attracts: [],
+                    edible: false,
+                    poisonous: false,
+                    medicinal: false,
+                    description: "No description available.",
+                    age: 0,
+                    value: 0
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message || data.error);
+                location.reload();
+            })
+            .catch(error => console.error("Error adding plant:", error));
         }
     </script>
 </body>

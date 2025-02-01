@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1>{{ plant_name }}</h1>
+
     <p><strong>Scientific Name:</strong> {{ plant_info.scientific_name }}</p>
     <p><strong>Type:</strong> {{ plant_info.type }}</p>
     <p><strong>Growth Cycle:</strong> {{ plant_info.cycle }}</p>
@@ -16,6 +17,9 @@
     <p><strong>Soil Type:</strong> {{ ", ".join(plant_info.soil) }}</p>
     <p><strong>Edible:</strong> {{ "Yes" if plant_info.edible else "No" }}</p>
     <p><strong>Poisonous:</strong> {{ "Yes" if plant_info.poisonous else "No" }}</p>
+    <p><strong>Medicinal:</strong> {{ "Yes" if plant_info.medicinal else "No" }}</p>
+    <p><strong>Age:</strong> {{ plant_info.age }} days</p>
+    <p><strong>Value:</strong> ${{ plant_info.value }}</p>
     <p><strong>Description:</strong> {{ plant_info.description }}</p>
 
     <br>

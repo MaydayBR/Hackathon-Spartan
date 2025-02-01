@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Added Plants</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>My Profile - Personal Plants</h1>
+
+    <ul id="personal-plant-list">
+        {% for plant_name, plant_info in personal_plants.items() %}
+            <li>
+                <span onclick="viewPlant('{{ plant_name }}')">{{ plant_name }}</span>
+                <button onclick="deletePlant('{{ plant_name }}')">Remove</button>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <br>
+    <a href="/">← Back to Search</a>
+
+    <script>
+        function viewPlant(plantName) {
+            window.location.href = `/plant/${plantName.replace(" ", "_")}`;
+        }
+
+        function deletePlant(plantName) {
+            fetch('/delete_plant', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ name: plantName })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message || data.error);
+                location.reload();
+            })
+            .catch(error => console.error("Error removing plant:", error));
+        }
+    </script>
+</body>
+</html>
